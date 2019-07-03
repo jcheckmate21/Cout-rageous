@@ -1,5 +1,4 @@
 
-
 html{
     background: #F0F0F0;
     font-family: 'Montserrat', sans-serif;
@@ -13,7 +12,7 @@ body{
 /* pagetitle */
 h1{
     font-size: 25px;
-    padding-top: 14vh;
+    padding-top: 5vh;
     margin: 0;
 }
 h2{
@@ -38,7 +37,7 @@ h2{
 /* mainpage */
 #mainpage{
     display: grid;
-    grid-template-rows: 30vh 70vh;
+    grid-template-rows: 20vh 80vh;
 }
 #mainform{
     width: auto;
@@ -96,7 +95,7 @@ h2{
 
 /* admin welcome page */
 #adminlist{
-    
+
     float: left;
     text-align: center;
     width: auto;
@@ -421,4 +420,4 @@ h2{
     float: left;
     left: 50%;
     transform: translate(-50%);
-}
+} 
