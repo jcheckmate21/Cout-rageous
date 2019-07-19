@@ -12,9 +12,7 @@
 <div class="registerstudent">
 
 <div id="title">
-<a id="backbtn" href="add_student.php" class="left" ></a><br><br>
-
-    <h2 id="minititle">FACE</h2>
+    <h2>FACE</h2>
     <p>Please look in camera to scan face</p>
 </div>        
 

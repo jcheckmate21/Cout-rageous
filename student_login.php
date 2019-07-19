@@ -35,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
+        $username = substr($username, 0, strpos($username, '@'));
     }
     
     // Check if password is empty
@@ -163,7 +164,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </div> 
 
 <div id="mainform">
- &nbsp;  &nbsp; <a href="scan_qr.php" id="reset">Scan QR code</a>
+ 
 <br> <br> 
         <form id="loginform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -183,6 +184,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <br> <br> <br> <br>
            <div class="form-group">
+               <a href="scan_qr.php" id="reset"><img class="qrIcon"  src="images/qrcode.png" alt="Qr code icon"></a>
                <p id="reset"> <a href="logout.php">Return to Admin Dashboard</a></p>
                <!-- logout.php for security purposes. To prevent anybody from accessing the admin dashbord under any circumstance -->
 

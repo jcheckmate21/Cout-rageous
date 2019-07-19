@@ -4,6 +4,10 @@
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <title>View Records</title>
 
 <!-- jQuery -->
@@ -39,20 +43,8 @@
 </head>
 
 <body>
-
-<div id="allstudentspage">
-<div class="wrapper2">
-<!-- <a id="backbtn" href="view_all_students.php?sort=all" class="left" ></a> -->
-
-    <h2 id="minititle2">REGISTER STUDENT</h2>
-    <!-- <p>| Please fill this form to create an account yes |</p> -->
-</div>
-
-<div id="mainform2">
-<a href="add_student.php" id="addbtn">+</a>
-
-
-
+    
+<br><br>
 <?php
 
 
@@ -71,7 +63,7 @@ $result = mysqli_query($link,"SELECT * FROM students");
 // or die(mysql_error());
 
 // display data in table
-echo '<table border="0" class="hover" id="table" style="width:100%">';
+echo '<table border="0" class="hover" id="table" style="width:90%">';
 
 echo "<thead><tr> <th>A Number</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Major</th> <th>Classification</th> <th>CRN</th> <th></th> <th></th> </tr></thead> <tbody>";
 
@@ -103,14 +95,8 @@ echo "</tbody> </table>";
 
 ?>
 
-
-<p id="reset"> <a href="index.php">Return to Dashboard</a></p>
-
-
-</div>
-
-</div> 
-
+<p><a href="add_student.php">Add Student</a></p>
+<p id="old"> <a href="index.php">Return to Dashboard</a></p>
 
 
 <script>

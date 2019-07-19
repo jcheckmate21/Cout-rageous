@@ -2,18 +2,18 @@
 // Include config file
 require_once "config.php";
  
-//  // Selecting list of crn From Database .
-//  function view_courses(){
-//       // Selecting list of crn From Database .
-//       $query3 = mysqli_query($link,"select * from courses " );
+ // Selecting list of crn From Database .
+ function view_courses(){
+      // Selecting list of crn From Database .
+      $query3 = mysqli_query($link,"select * from courses " );
 
-//       // SQL query to fetch data to display in menu.
-//       while ($row3  = mysqli_fetch_assoc($query3)) {
-//       echo ' <option class="form-control" value="'.$row3['crn'].' ">'.$row3['crn'].' - '.$row3['class'].'</option> <a>';
-//       }
+      // SQL query to fetch data to display in menu.
+      while ($row3  = mysqli_fetch_assoc($query3)) {
+      echo ' <option class="form-control" value="'.$row3['crn'].' ">'.$row3['crn'].' - '.$row3['class'].'</option> <a>';
+      }
 
 
-//  }
+ }
 
 
 //placeholders
@@ -207,20 +207,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
 
 
-<div class="addnewstudent">
+<a id="" href="view_all_students.php?sort=all" class="btn  btn-warning" >back</a><br>
+<div class="registerstudent">
 
 <div id="title">
-<a id="backbtn" href="view_all_students.php?sort=all" class="left" ></a><br><br>
 
-    <h2 id="minititle">REGISTER STUDENT</h2>
+    <h2>REGISTER STUDENT</h2>
     <p>Please fill this form to create an account</p>
 </div>
 
 
 
-<div id="form1">
-    <div>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<div id="form">
+    <!-- autocomplete="off"-----for form -->
+    <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($anumber_err)) ? 'has-error' : ''; ?>">
 
                 <input id="line" type="text" name="anumber" class="form-control" <?php echo $anumber_ph; ?> value="<?php echo $anumber; ?>">
@@ -238,7 +238,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div> 
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
 
-                <input id="line" type="email" name="email" class="form-control" <?php echo $email_ph; ?> value="<?php echo $email; ?>">
+                <input autocomplete="off" id="line" type="email" name="email" class="form-control" <?php echo $email_ph; ?> value="<?php echo $email; ?>">
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div> 
             <div class="form-group <?php echo (!empty($major_err)) ? 'has-error' : ''; ?>">
@@ -251,9 +251,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input id="line" type="text" name="classification" class="form-control" <?php echo $classification_ph; ?> value="<?php echo $classification; ?>">
                 <span class="help-block"><?php echo $classification_err; ?></span>
             </div> 
-            <div class="form-group <?php echo (!empty($crn_err)) ? 'has-error' : ''; ?>">
 
-                <input id="line" type="text" name="crn" class="form-control" <?php echo $crn_ph; ?> value="<?php echo $crn; ?>">
+            <div class="form-group <?php echo (!empty($crn_err)) ? 'has-error' : ''; ?>">
+                <select name="crn" id="line" class="form-control" <?php echo $crn_ph; ?> value="<?php echo $crn; ?>">
+                <?php  
+                    // Selecting list of crn From Database .
+                    $query3 = mysqli_query($link,"select * from courses " );
+
+                    // SQL query to fetch data to display in menu.
+                    while ($row3  = mysqli_fetch_assoc($query3)) {
+                    echo ' <option class="form-control" value="'.$row3['crn'].' ">'.$row3['crn'].' - '.$row3['class'].'</option> ';
+                    }
+                ?></select>
+                <!-- 
+                <input id="line" type="text" name="crn" class="form-control" <?php //echo $crn_ph; ?> value="<?php //echo $crn; ?>"> -->
                 <span class="help-block"><?php echo $crn_err; ?></span>
             </div> 
 
@@ -267,12 +278,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input id="line" type="password" name="confirm_password" class="form-control" <?php echo $confirm_password_ph; ?>>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
-</div>
 
 <div id="command">
         <div class="form-group">
                 <!-- <input id="submitbtn" type="submit" class="btn btn-primary" value="Submit"> -->
-                
+                <br>
                 <input id="nextbtn" type="submit" class="btn btn-primary" value="Next">
 
                 <!-- <a href="facepage.php"><div id="nextbtn">next</div></a><br> -->
@@ -282,12 +292,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <br>
             <br>
 
-            <p id="reset"> <a href="index.php">Return to Dashboard</a></p>
+            <p id="old"> <a href="index.php">Return to Dashboard</a></p>
 </div>
 
-</form>
-</div>
 
+    </form>
+</div>
 
 </div>   
 </body>

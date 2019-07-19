@@ -31,6 +31,9 @@ $(document).ready(function() {
                     key: {
                         key: 'e',
                         altKey: true
+                    },
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 5,6 ]
                     }
                 },
                 {
@@ -38,7 +41,9 @@ $(document).ready(function() {
                     text: 'PDF',
                     className: 'datatablebtn',
                     filename: 'jay',
-                    extension: '.pdf',   
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 5,6 ]
+                    }  
                 }   ]
             },    
 
@@ -75,7 +80,7 @@ $(document).ready(function() {
             ]
         },
 		columnDefs: [
-			// { "width": "10%", "targets": [0,1,2,3,4] },
+			//  { "width": "10%", "targets": [0,1,2,3,4] },
 			{
 				targets: [ 0 ],
 				orderData: [ 0, 1 ]
@@ -106,6 +111,7 @@ $(document).ready(function() {
         //     { responsivePriority: 10001, targets: 3 },
         //     { responsivePriority: 2, targets: -2 }
         // ],
+
 		scrollY:        '60vh',
 		scrollCollapse: true,
 		paging:         false

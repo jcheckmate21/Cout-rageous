@@ -24,7 +24,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
 </head>
-<body id="adminpage">
+<body>
 <div id="mainpage">
 
 <div class="wrapper1">
@@ -34,41 +34,34 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <div id="mainform">
 
     <div id="adminlist">
-    
-    <a id="aa" href="remove_tutor.php" class="btn  btn-danger" >Tutors</a><br>
+    <div id="adminbtn"><a href="remove_tutor.php" class="btn  btn-danger" >Tutors</a></div><br>
 
-<div id="register">
-
-    <a id="aa" href="#">Registry</a>
-    
+    <div id="register">
+    <div id="regbtn"><a href="#">Registry</a></div>
 
     <div id="registercnt"> 
-    <div id="registerlist">        
+    <div id="registerlist">   
+      
         <a id="reglist" href="view_all_students.php?sort=all" class="btn  btn-warning" >Students</a><br>
         <a id="reglist" href="view_instructors.php?sort=all" class="btn  btn-warning" >Instructors</a> <br>
         <a id="reglist" href="view_courses.php" class="btn  btn-warning" >Courses</a>
-        
     </div>
     </div>  
 
-</div><br><br>
+</div><br><br>                     
 
-             
-    <a id="aa" href="#" class="btn  btn-danger" >attendance report</a><br>
-    <a id="aa" href="#" class="btn  btn-danger" >import registry</a><br>
-    <a id="stbtn" href="student_login.php" class="btn  btn-danger" >login</a>
+    <div id="adminbtn"><a href="#" class="btn  btn-danger" >Attendance report</a></div><br>
+    <div id="adminbtn"><a href="read_excel.php" class="btn  btn-danger" >Import Registry</a></div><br>
+    <div id="instbtn"><a href="student_login.php" class="btn  btn-danger" > Student login</a></div>
 
-    <a id="logoutbtn" href="logout.php" class="btn btn-danger"><</a><br><br><br><br>
+    <a href="logout.php" class="btn btn-danger"><div id="logoutbtn"></div></a><br><br><br><br>
 
-    <p id="reset"><a href="reset_admin_password.php" class="btn btn-warning">Reset Password</a></p>
+        <div id="reset"><a href="reset_admin_password.php" class="btn btn-warning">Reset Password</a></div>
 
-<div id="overlayer">yes</div>    
     </div>
 
-
-
 </div>
-</div> 
 
+</div>  
 </body>
 </html>

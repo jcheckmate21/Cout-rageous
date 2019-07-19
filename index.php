@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div id="mainpage">
 
 <div class="wrapper">
-        <h3>mathlab</h3>
+        <h2>mathlab</h2>
         <!-- <p>Please fill in your credentials to login.</p> -->
 </div> 
 
@@ -140,7 +140,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="ibox"><input type="password" id="password" name="password" class="form-control" placeholder="Password"></span>
             <span class="help-block"><?php echo $password_err; ?></span>
 
-            <input id="loginbtn" type="submit" class="btn btn-primary" value=">">
+                   <input id="loginbtn" type="submit" class="btn btn-primary" value="">
             </div> 
 
               

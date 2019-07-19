@@ -12,9 +12,7 @@
 <div class="registerstudent">
 
 <div id="title">
-<a id="backbtn" href="fingerpage.php" class="left" ></a><br><br>
-
-    <h2 id="minititle">CARD</h2>
+    <h2>CARD</h2>
     <p>Please show card in front of camera</p>
 </div>        
 

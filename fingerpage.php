@@ -12,9 +12,7 @@
 <div class="registerstudent">
 
 <div id="title">
-<a id="backbtn" href="facepage.php" class="left" ></a><br><br>
-
-    <h2 id="minititle">FINGERPRINT</h2>
+    <h2>FINGERPRINT</h2>
     <p>Please place your finger on reader</p>
 </div>        
 
