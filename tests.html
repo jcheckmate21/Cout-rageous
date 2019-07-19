@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+<h1>COUT<&lt;RAGEOUS  MATHLAB </h1>
+        
+    <div class="wrapper">
+        <h2>Admin Login</h2>
+        <hr>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <!-- <p>Don't have an account? <a href="register_tutor.php">Sign up now</a>.</p> -->
+        </form>
+    </div>    
+</body>
+</html>
+
+
+
+
+
+
+<!-- add student -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>ADD A STUDENT</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($anumber_err)) ? 'has-error' : ''; ?>">
+                <label>A number</label>
+                <input type="text" name="anumber" class="form-control" value="<?php echo $anumber; ?>">
+                <span class="help-block"><?php echo $anumber_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
+                <label>First Name</label>
+                <input type="text" name="firstname" class="form-control" value="<?php echo $firstname; ?>">
+                <span class="help-block"><?php echo $firstname_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($lastname_err)) ? 'has-error' : ''; ?>">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="form-control" value="<?php echo $lastname; ?>">
+                <span class="help-block"><?php echo $lastname_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($major_err)) ? 'has-error' : ''; ?>">
+                <label>Major</label>
+                <input type="text" name="major" class="form-control" value="<?php echo $major; ?>">
+                <span class="help-block"><?php echo $major_err; ?></span>
+            </div> 
+            
+            <div class="form-group <?php echo (!empty($classification_err)) ? 'has-error' : ''; ?>">
+                <label>Classification</label>
+                <select name="classification">
+                    <option class="form-control" value=" "></option>
+                    <option class="form-control" value="freshman">Freshman</option>
+                    <option class="form-control" value="sophomore">Sophomore</option>
+                    <option class="form-control" value="junior">Junior</option>
+                    <option class="form-control" value="senior">Senior</option>
+                </select>
+                <span class="help-block"><?php echo $classification_err; ?></span>
+            </div> 
+
+           
+
+            <div class="form-group <?php echo (!empty($crn_err)) ? 'has-error' : ''; ?>">
+                <label>CRN</label>
+                <select name="crn">
+                <option class="form-control" value=" "></option>
+                    <?php
+                        
+                      view_courses();
+
+                    ?>
+                </select>
+                <span class="help-block"><?php echo $crn_err; ?></span>
+            </div>     
+
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <a href="login.php">Return to Dashboard</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- Reset admin password -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Reset Password</h2>
+        <p>Please fill out this form to reset your password.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+
+       <!-- validate old password-->
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Old Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+
+           <!-- enter new password--> 
+            <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+                <label>New Password</label>
+                <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+                <span class="help-block"><?php echo $new_password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <a class="btn btn-link" href="admin_welcome_page.php">Cancel</a>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>
+
+
+
+
+<!-- Add instructor -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>ADD INSTRUCTOR</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($anumber_err)) ? 'has-error' : ''; ?>">
+                <label>A number</label>
+                <input type="text" name="anumber" class="form-control" value="<?php echo $anumber; ?>">
+                <span class="help-block"><?php echo $anumber_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
+                <label>First Name</label>
+                <input type="text" name="firstname" class="form-control" value="<?php echo $firstname; ?>">
+                <span class="help-block"><?php echo $firstname_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($lastname_err)) ? 'has-error' : ''; ?>">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="form-control" value="<?php echo $lastname; ?>">
+                <span class="help-block"><?php echo $lastname_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($major_err)) ? 'has-error' : ''; ?>">
+                <label>Class Number</label>
+                <input type="text" name="major" class="form-control" value="<?php echo $major; ?>">
+                <span class="help-block"><?php echo $major_err; ?></span>
+            </div> 
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <a href="login.php">Back to Dashboard</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>
+
+
+
+<!-- Student Login page -->
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>STUDENT/ INSTRUCTOR CLOCK IN</h2>
+        <hr>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>A number or Username </label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <!-- <p>Don't have an account? <a href="register_tutor.php">Sign up now</a>.</p> -->
+        </form>
+    </div>    
+</body>
+</html>
+
+
+
+<!-- View Students Pagination -->
+
+<? php
+
+if (($_GET['sort'])=="group"){
+
+    // number of results to show per page
+    $per_page = 3;
+    
+    // Determine the total pages in the database
+    $result = mysqli_query($link, "SELECT * FROM students where type = 'instructor' ");
+    //Number of records
+    $total_results = mysqli_num_rows($result);
+    //Total number of pages
+    $total_pages = ceil($total_results / $per_page);
+    
+    
+    // check if the 'page' variable is set in the URL (ex: view_students_in_chunks.php?page=1)
+    if (isset($_GET['page']) && is_numeric($_GET['page'])){
+        
+        //Get assigned page number 
+        $show_page = $_GET['page'];
+        // make sure the $show_page value is valid
+        if ($show_page > 0 && $show_page <= $total_pages){
+            //variables for range of records to display
+            $start = ($show_page -1) * $per_page;
+            $end = $start + $per_page;
+        }  
+        else
+        {
+            // error - show first set of results
+            $start = 0;
+            $end = $per_page;
+        }
+    }
+    else
+    {
+        // if page isn't set, show first set of results
+        $start = 0;
+        $end = $per_page;
+    }
+    
+    
+    
+    // display pagination contol buttons
+    echo "<p><a href='view_all_students.php?sort=all'>View All</a> | <b>View Page:</b> ";
+     // links to provide page numbers (particular set of records) to display
+    for ($i = 1; $i <= $total_pages; $i++)
+    {
+        // link select page number (particular set of records) to display
+        echo "<a href='view_all_students.php?sort=group&page=$i'>$i</a> ";
+    }
+    echo "</p>";
+    
+    
+    
+    // display data in table
+    
+    echo "<table border='0' cellpadding='10'>";
+    
+    echo "<tr> <th>A Number</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Major</th> <th>Classification</th> <th>CRN</th> <th></th> <th></th> </tr>";
+    
+    
+    // loop through results of database query, displaying them in the table
+    
+    for ($i = $start; $i < $end; $i++)
+    
+    {
+        // make sure that PHP doesn't try to show results that don't exist
+        if ($i == $total_results) { break; }
+    
+        // Display data set in table
+        
+        // Target record row to display from
+        mysqli_data_seek($result, $i);
+    
+        //fetch record
+        $row = mysqli_fetch_assoc($result);
+    
+        echo "<tr>";
+        echo '<td>' . $row['anumber'] . '</td>';
+        echo '<td>' . $row['firstname'] . '</td>';
+        echo '<td>' . $row['lastname'] . '</td>';
+        echo '<td>' . $row['email'] . '</td>';
+        echo '<td>' . $row['major'] . '</td>';
+        echo '<td>' . $row['classification'] . '</td>';
+        echo '<td>' . $row['crn'] . '</td>';
+        echo '<td><a href="edit_student.php?anumber=' . $row['anumber'] . '">Edit</a></td>';
+        echo '<td><a href="delete_student.php?anumber=' . $row['anumber'] . '&confirm=0">Delete</a></td>';
+        echo "</tr>";
+    
+    }
+    // close table>
+    echo "</table>";
+    
+    
+    
+    // pagination
+    
+    }
+    ?>
